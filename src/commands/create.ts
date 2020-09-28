@@ -15,7 +15,7 @@ const create = async (projectName: string) => {
         name: "ProjectSetup",
         type: "checkbox",
         message: "Project setup",
-        choices: ["typescript", "eslint", "scss", "unit-tests"]
+        choices: ["typescript", "scss", "eslint"]
       }
     ]);
 

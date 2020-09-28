@@ -1,9 +1,13 @@
 import { program } from "commander";
 import create from "./commands/create";
+// @ts-ignore
+import packageJSON from "../package.json";
+
+program.version(packageJSON.version);
 
 program
   .command("create <name>")
   .description("create react project")
-  // extracting project name
-  .action((...args) => create(args[2]))
-  .parse(process.argv);
+  .action(create);
+  
+program.parse(process.argv);

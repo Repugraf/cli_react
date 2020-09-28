@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 import { program } from "commander";
 import create from "./commands/create";
 // @ts-ignore

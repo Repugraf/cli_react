@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
+  "bin": "./dist/index.js",
   "scripts": {
     "start": "node .",
     "dev": "npm run lint:fix && ts-node ./src/index.ts",
     "build": "npm run lint:fix && tsc -p .",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",

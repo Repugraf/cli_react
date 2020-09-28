@@ -19,13 +19,13 @@ const create = async (projectName: string) => {
       }
     ]);
 
-    if (result.ProjectSetup.length)
-      return console.log("options not yet supported!");
+    let template = "js";
+    if (result.ProjectSetup.includes("typescript")) template = "ts";
 
     const projectPath = resolve(".", `${projectName}`);
 
     console.log("Creating project...");
-    copyDir("./templates/js_basic", projectPath);
+    copyDir(resolve(".", "templates", template), projectPath);
 
     const packageJSON = JSON.parse(readFileSync(resolve(projectPath, "package.json"), "utf-8"));
     const dependencies = Object.keys(packageJSON.dependencies);

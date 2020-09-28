@@ -30,10 +30,11 @@ const webpackConfig = (env): Configuration => ({
         exclude: /build/
       },
       {
-        test: /\.css$/,
+        test: /\.s(a|c)ss$/,
         use: [
           MiniCssExpractPlugin.loader,
           "css-loader",
+          "sass-loader",
           {
             loader: "postcss-loader",
             options: {

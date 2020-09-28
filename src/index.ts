@@ -1,13 +1,9 @@
-import { prompt } from "inquirer";
+import { program } from "commander";
+import create from "./commands/create";
 
-void async function () {
-  const result = await prompt([
-    {
-      name: "ProjectSetup",
-      type: "checkbox",
-      message: "Project setup",
-      choices: ["typescript", "eslint", "scss", "unit-tests"]
-    }
-  ]);
-  console.log(result);
-}();
+program
+  .command("create <name>")
+  .description("create react project")
+  // extracting project name
+  .action((...args) => create(args[2]))
+  .parse(process.argv);

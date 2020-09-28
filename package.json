@@ -1,5 +1,5 @@
 {
-  "name": "cli_react",
+  "name": "@repugraf/react-cli",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
@@ -14,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Repugraf/cli_react.git"
+    "url": "git+https://github.com/Repugraf/react-cli.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Repugraf/cli_react/issues"
+    "url": "https://github.com/Repugraf/react-cli/issues"
   },
-  "homepage": "https://github.com/Repugraf/cli_react#readme",
+  "homepage": "https://github.com/Repugraf/react-cli#readme",
   "devDependencies": {
     "@types/inquirer": "^7.3.1",
     "@typescript-eslint/eslint-plugin": "^4.2.0",

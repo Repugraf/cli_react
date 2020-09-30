@@ -1,5 +1,4 @@
 ## React-Cli
-***
 Cli tool to make it easy to setup react project with webpack.  
 Currently supports **typescript** and **scss** setups.
 ***

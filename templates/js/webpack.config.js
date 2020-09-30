@@ -8,6 +8,7 @@ const MiniCssExpractPlugin = require("mini-css-extract-plugin");
 const Autoprefixer = require("autoprefixer");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
+/** @returns { import("webpack").Configuration } */
 const webpackConfig = (env) => ({
   context: path.resolve(__dirname),
   entry: path.resolve(__dirname, "src", "index.js"),

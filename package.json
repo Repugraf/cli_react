@@ -1,7 +1,7 @@
 {
   "name": "@repugraf/react-cli",
   "version": "1.0.0",
-  "description": "",
+  "description": "Cli tool to setup react app with webpack",
   "main": "./dist/index.js",
   "bin": "./dist/index.js",
   "scripts": {
@@ -16,8 +16,14 @@
     "type": "git",
     "url": "git+https://github.com/Repugraf/react-cli.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "react",
+    "cli",
+    "webpack",
+    "ts",
+    "scss"
+  ],
+  "author": "Serhii Mamedov",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Repugraf/react-cli/issues"

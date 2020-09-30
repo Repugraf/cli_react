@@ -7,6 +7,7 @@ import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
 import MiniCssExpractPlugin from "mini-css-extract-plugin";
 import Autoprefixer from "autoprefixer";
+import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 
 const webpackConfig = (env): Configuration => ({
   context: path.resolve(__dirname),
@@ -65,6 +66,15 @@ const webpackConfig = (env): Configuration => ({
       "process.env.PRODUCTION": env.production || !env.development,
       "process.env.NAME": packageJSON.name,
       "process.env.VERSION": packageJSON.version
+    }),
+    new ForkTsCheckerWebpackPlugin({
+      eslint: {
+        files: "./src/**/*.{ts,tsx,js,jsx}",
+        enabled: true,
+        options: {
+          fix: true
+        }
+      }
     }),
     new webpack.LoaderOptionsPlugin({
       options: {

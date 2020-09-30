@@ -1,0 +1,72 @@
+{
+  "root": true,
+  "plugins": [
+    "react",
+    "react-hooks",
+    "eslint-plugin-import"  
+  ],
+  "env": {
+    "browser": true
+  },
+  "extends": [
+    "plugin:react/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [
+          ".jsx",
+          ".js"
+        ]
+      }
+    ],
+    "react/prop-types": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+    "quotes": [
+      "error",
+      "double"
+    ],
+    "semi": "error",
+    "indent": [
+      "error",
+      2
+    ],
+    "comma-dangle": [
+      "error",
+      "never"
+    ],
+    "use-isnan": "error",
+    "no-return-await": "error",
+    "require-await": "error",
+    "array-bracket-newline": "error",
+    "comma-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "eol-last": "error",
+    "max-len": [
+      "error",
+      {
+        "code": 120
+      }
+    ],
+    "no-mixed-spaces-and-tabs": "error"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

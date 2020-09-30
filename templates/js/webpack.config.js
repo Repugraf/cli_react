@@ -7,6 +7,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExpractPlugin = require("mini-css-extract-plugin");
 const Autoprefixer = require("autoprefixer");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const ESLintPlugin = require("eslint-webpack-plugin");
 
 /** @returns { import("webpack").Configuration } */
 const webpackConfig = (env) => ({
@@ -67,6 +68,13 @@ const webpackConfig = (env) => ({
       options: {
         postcss: [Autoprefixer()]
       }
+    }),
+    new ESLintPlugin({
+      extensions: [
+        "js",
+        "jsx"
+      ],
+      fix: true
     }),
     new MiniCssExpractPlugin({
       filename: "styles.[chunkhash].css"

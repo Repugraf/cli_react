@@ -4,7 +4,9 @@
   "description": "",
   "scripts": {
     "dev": "webpack-dev-server --mode development --env.development",
-    "build": "webpack --mode production --env.production --progress"
+    "build": "webpack --mode production --env.production --progress",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "keywords": [],
   "author": "",
@@ -40,6 +42,13 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "node-sass": "^4.14.1",
-    "sass-loader": "^10.0.2"
+    "sass-loader": "^10.0.2",
+    "eslint": "7.9.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.2",
+    "@typescript-eslint/eslint-plugin": "^4.2.0",
+    "@typescript-eslint/parser": "^4.2.0",
+    "fork-ts-checker-webpack-plugin": "^5.2.0"
   }
 }

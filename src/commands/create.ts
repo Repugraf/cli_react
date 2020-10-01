@@ -90,10 +90,10 @@ const create = async (projectName: string) => {
     writeFileSync(resolve(projectPath, "package.json"), JSON.stringify(packageJSON, null, 2));
 
     console.log("Installing dependencies...");
-    await exec(`cd ${projectPath}\nnpm install ${dependencies.join(" ")}`);
+    await exec(`npm install ${dependencies.join(" ")}`, { cdw: projectPath });
 
     console.log("Installing dev dependencies...");
-    await exec(`cd ${projectPath}\nnpm install -D ${devDependencies.join(" ")}`);
+    await exec(`npm install -D ${devDependencies.join(" ")}`, { cdw: projectPath });
 
     console.log("Done!");
     console.log(`To start dev server run: \ncd ${projectName}\nnpm run dev`);

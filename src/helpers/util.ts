@@ -2,6 +2,10 @@ import fs, { mkdirSync as mkdir, copyFileSync as copy } from "fs";
 import path from "path";
 import { spawn as _spawn, exec as _exec } from "child_process";
 
+interface IExecOptions {
+  cdw?: string
+}
+
 export const copyDir = (src: string, dest: string) => {
   mkdir(dest);
   const files = fs.readdirSync(src);
@@ -18,12 +22,14 @@ export const copyDir = (src: string, dest: string) => {
   }
 };
 
-export const exec = (command: string) => new Promise((relove, reject)=> {
-  const p = _exec(command);
+export const exec = (command: string, options: IExecOptions = {}) => {
+  return new Promise((relove, reject) => {
+    const p = _exec(command, { cwd: options.cdw || process.cwd() });
 
-  p.stdout?.on("data", data => process.stdout.write(`${data}`));
-  p.stderr?.on("data", data => process.stderr.write(`${data}`));
+    p.stdout?.on("data", data => process.stdout.write(`${data}`));
+    p.stderr?.on("data", data => process.stderr.write(`${data}`));
 
-  p.on("error", reject);
-  p.on("exit", relove);
-});
+    p.on("error", reject);
+    p.on("exit", relove);
+  });
+};

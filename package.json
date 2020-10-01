@@ -1,6 +1,6 @@
 {
   "name": "@repugraf/react-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Cli tool to setup react app with webpack",
   "main": "./dist/index.js",
   "bin": "./dist/index.js",

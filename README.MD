@@ -4,7 +4,7 @@ Currently supports **typescript**, **scss** and **eslint** setups.
 #
 ### Usage
  * With ***npx***  
-  ```npx @repugraf/react-cli crate <project-name>```
+  ```npx @repugraf/react-cli create <project-name>```
  * With global install  
     1. ```npm i -g @repugraf/react-cli```  
     2. ```react-cli create <project-name>```  

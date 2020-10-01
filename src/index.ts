@@ -2,10 +2,8 @@
 
 import { program } from "commander";
 import create from "./commands/create";
-// @ts-ignore
-import packageJSON from "../package.json";
 
-program.version(packageJSON.version);
+program.version(require("../package.json").version);
 
 program
   .command("create <name>")

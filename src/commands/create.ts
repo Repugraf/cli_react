@@ -1,9 +1,7 @@
 import { resolve, join } from "path";
 import { readFileSync, writeFileSync, renameSync, unlinkSync } from "fs";
 import { prompt } from "inquirer";
-import { copyDir } from "../util/fs";
-import { exec as _exec } from "child_process";
-import { promisify } from "util";
+import { copyDir, exec } from "../helpers/util";
 import {
   scssRelatedPackages,
   scssRelatedWebpackConfings,
@@ -12,8 +10,6 @@ import {
   eslintRelatedScripts,
   eslintRelatedWebpackConfigs
 } from "../config";
-
-const exec = promisify(_exec);
 
 const create = async (projectName: string) => {
   const rootDir = resolve(__dirname, "..", "..");
@@ -27,7 +23,7 @@ const create = async (projectName: string) => {
         choices: ["typescript", "scss", "eslint"]
       }
     ]);
-    console.log(result.ProjectSetup);
+
     let template = "js";
     if (result.ProjectSetup.includes("typescript")) template = "ts";
 

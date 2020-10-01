@@ -9,8 +9,19 @@ const Autoprefixer = require("autoprefixer");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 
-/** @returns { import("webpack").Configuration } */
-const webpackConfig = (env) => ({
+/**
+ * @typedef {{
+ *  production?: string | boolean,
+ *  [key: string]: string | boolean
+ * }} ENV 
+ */
+
+/** 
+ * @param {ENV} env
+ * @returns { import("webpack").Configuration } 
+ */
+const webpackConfig = (env = {}) => ({
+  mode: env.production ? "production" : "development",
   context: path.resolve(__dirname),
   entry: path.resolve(__dirname, "src", "index.js"),
   output: {
@@ -56,7 +67,7 @@ const webpackConfig = (env) => ({
   },
   plugins: [
     new webpack.DefinePlugin({
-      "process.env.PRODUCTION": env.production || !env.development,
+      "process.env.MODE": env.production ? "production" : "development",
       "process.env.NAME": packageJSON.name,
       "process.env.VERSION": packageJSON.version
     }),

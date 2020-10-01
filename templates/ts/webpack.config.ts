@@ -9,7 +9,13 @@ import MiniCssExpractPlugin from "mini-css-extract-plugin";
 import Autoprefixer from "autoprefixer";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 
-const webpackConfig = (env): Configuration => ({
+type ENV = {
+  production?: string | boolean
+  [key: string]: string | boolean
+};
+
+const webpackConfig = (env: ENV = {}): Configuration => ({
+  mode: env.production ? "production" : "development",
   context: path.resolve(__dirname),
   entry: path.resolve(__dirname, "src", "index.tsx"),
   resolve: {
@@ -63,7 +69,7 @@ const webpackConfig = (env): Configuration => ({
       template: "./src/index.html"
     }),
     new webpack.DefinePlugin({
-      "process.env.PRODUCTION": env.production || !env.development,
+      "process.env.MODE": env.production ? "production" : "development",
       "process.env.NAME": packageJSON.name,
       "process.env.VERSION": packageJSON.version
     }),

@@ -3,7 +3,7 @@
 import { program } from "commander";
 import create from "./commands/create";
 
-program.version(require("../package.json").version);
+program.version(require("../package.json").version, "-v, --version");
 
 program
   .command("create <name>")

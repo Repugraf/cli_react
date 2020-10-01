@@ -21,7 +21,8 @@
     "cli",
     "webpack",
     "ts",
-    "scss"
+    "scss",
+    "eslint"
   ],
   "author": "Serhii Mamedov",
   "license": "ISC",

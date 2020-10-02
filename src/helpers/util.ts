@@ -1,4 +1,4 @@
-import fs, { mkdirSync as mkdir, copyFileSync as copy } from "fs";
+import fs, { mkdirSync as mkdir, copyFileSync as copy, existsSync } from "fs";
 import path from "path";
 import { spawn as _spawn, exec as _exec } from "child_process";
 
@@ -7,7 +7,7 @@ interface IExecOptions {
 }
 
 export const copyDir = (src: string, dest: string) => {
-  mkdir(dest);
+  if (!existsSync(dest)) mkdir(dest);
   const files = fs.readdirSync(src);
   for (let i = 0; i < files.length; i++) {
     const current = fs.lstatSync(path.join(src, files[i]));

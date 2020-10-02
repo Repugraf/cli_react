@@ -28,13 +28,20 @@ const create = async (projectName: string) => {
     if (result.ProjectSetup.includes("typescript")) template = "ts";
 
     const projectPath = resolve(".", `${projectName}`);
+    const ext = template === "js" ? "js" : "tsx";
 
     console.log("Creating project...");
+    copyDir(resolve(rootDir, "templates", "common"), projectPath);
     copyDir(resolve(rootDir, "templates", template), projectPath);
+    const indexPath = resolve(projectPath, "src", "index");
+    const appPath = resolve(projectPath, "src", "components", "App");
+    if (template === "ts") {
+      renameSync(`${indexPath}.js`, `${indexPath}.${ext}`);
+      renameSync(`${appPath}.js`, `${appPath}.${ext}`);
+    }
 
     const packageJSON = JSON.parse(readFileSync(resolve(projectPath, "package.json"), "utf-8"));
     const webpackConfigPath = resolve(projectPath, `webpack.config.${template}`);
-    console.log(webpackConfigPath);
     let webpackConfigText = readFileSync(webpackConfigPath, "utf-8");
 
     if (!result.ProjectSetup.includes("scss")) {
@@ -49,7 +56,6 @@ const create = async (projectName: string) => {
       renameSync(`${mainStylesPath}.scss`, `${mainStylesPath}.css`);
 
       // change main styles import extension in index file
-      const ext = template === "js" ? "js" : "tsx";
       const indexPath = resolve(projectPath, "src", `index.${ext}`);
       const newIndexText = readFileSync(indexPath, "utf-8").replace("main.scss", "main.css");
       writeFileSync(indexPath, newIndexText);

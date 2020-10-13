@@ -1,4 +1,3 @@
-
 import path from "path";
 import packageJSON from "./package.json";
 import webpack, { Configuration } from "webpack";

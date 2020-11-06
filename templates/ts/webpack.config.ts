@@ -100,6 +100,7 @@ const webpackConfig = (env: ENV = {}): Configuration => ({
     })
   ],
   devServer: {
+    publicPath: "/",
     historyApiFallback: true,
     open: true,
     stats: {

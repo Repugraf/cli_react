@@ -2,7 +2,7 @@ type IWebpackConfigRemoveList = [RegExp | string, string][];
 
 export const scssRelatedPackages = ["node-sass", "sass-loader"];
 
-export const scssRelatedWebpackConfings: IWebpackConfigRemoveList = [
+export const scssRelatedWebpackConfigs: IWebpackConfigRemoveList = [
   ["/\\.s(a|c)ss$/", "/\\.css/"],
   [/\n(.)*sass-loader(.)*/, ""]
 ];

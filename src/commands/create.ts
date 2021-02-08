@@ -4,7 +4,7 @@ import { prompt } from "inquirer";
 import { copyDir, exec } from "../helpers/util";
 import {
   scssRelatedPackages,
-  scssRelatedWebpackConfings,
+  scssRelatedWebpackConfigs,
   eslintRelatedPackages,
   eslintRelatedFiles,
   eslintRelatedScripts,
@@ -61,7 +61,7 @@ const create = async (projectName: string) => {
       writeFileSync(indexPath, newIndexText);
 
       // remove scss related configs from webpack.config.{js|ts}
-      scssRelatedWebpackConfings.forEach(([src, target]) => {
+      scssRelatedWebpackConfigs.forEach(([src, target]) => {
         webpackConfigText = webpackConfigText.replace(src, target);
       });
     }

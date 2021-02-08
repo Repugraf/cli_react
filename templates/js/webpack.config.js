@@ -1,7 +1,7 @@
 const path = require("path");
 const packageJSON = require("./package.json");
 const webpack = require("webpack");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const Dotenv = require("dotenv-webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -71,6 +71,7 @@ const webpackConfig = (env = {}) => ({
       "process.env.NAME": packageJSON.name,
       "process.env.VERSION": packageJSON.version
     }),
+    new Dotenv(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: "./src/index.html"

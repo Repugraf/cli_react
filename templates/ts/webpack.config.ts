@@ -1,6 +1,7 @@
 import path from "path";
 import packageJSON from "./package.json";
 import webpack, { Configuration } from "webpack";
+import Dotenv from "dotenv-webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
@@ -63,14 +64,15 @@ const webpackConfig = (env: ENV = {}): Configuration => ({
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      template: "./src/index.html"
-    }),
     new webpack.DefinePlugin({
       "process.env.MODE": env.production ? "production" : "development",
       "process.env.NAME": packageJSON.name,
       "process.env.VERSION": packageJSON.version
+    }),
+    new Dotenv(),
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: "./src/index.html"
     }),
     new ForkTsCheckerWebpackPlugin({
       eslint: {

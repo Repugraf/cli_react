@@ -4,7 +4,7 @@ import webpack, { Configuration } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
-import MiniCssExpractPlugin from "mini-css-extract-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import Autoprefixer from "autoprefixer";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 
@@ -38,7 +38,7 @@ const webpackConfig = (env: ENV = {}): Configuration => ({
       {
         test: /\.s(a|c)ss$/,
         use: [
-          MiniCssExpractPlugin.loader,
+          MiniCssExtractPlugin.loader,
           "css-loader",
           "sass-loader",
           {
@@ -86,7 +86,7 @@ const webpackConfig = (env: ENV = {}): Configuration => ({
         postcss: [Autoprefixer()]
       }
     }),
-    new MiniCssExpractPlugin({
+    new MiniCssExtractPlugin({
       filename: "styles.[chunkhash].css"
     }),
     new CopyPlugin({

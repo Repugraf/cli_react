@@ -4,7 +4,7 @@ const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExpractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Autoprefixer = require("autoprefixer");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
@@ -87,7 +87,7 @@ const webpackConfig = (env = {}) => ({
       ],
       fix: true
     }),
-    new MiniCssExpractPlugin({
+    new MiniCssExtractPlugin({
       filename: "styles.[chunkhash].css"
     }),
     new CopyWebpackPlugin({
